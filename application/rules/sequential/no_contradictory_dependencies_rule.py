@@ -54,9 +54,11 @@ class SequentialNoContradictoryDependenciesRule(BaseRule):
                                 rule_id=self.rule_id,
                                 rule_name=self.name,
                                 dimension=self.dimension,
-                                practice_id="GLOBAL",
+                                practice_id=f"{practice_a.id} → {practice_b.id}",
                                 message=(
                                     f"Dependencia temporal contradictoria: "
+                                    f"práctica '{practice_a.id}' ({practice_a.name}) "
+                                    f"y práctica '{practice_b.id}' ({practice_b.name}): "
                                     f"'{act_a.name}' debe preceder a "
                                     f"'{act_b.name}' y viceversa"
                                 )
