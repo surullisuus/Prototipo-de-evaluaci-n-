@@ -28,8 +28,8 @@ class CAF(BaseMetric):
 
         total_activities = sum(len(p.activities) for p in model.practices)
         total_rules = len(model.practices)
-        total_roles = sum(len(p.roles) for p in model.practices)
-        total_artifacts = sum(len(p.artifacts) for p in model.practices)
+        total_roles = len({r.id for p in model.practices for r in p.roles})
+        total_artifacts = len({a.id for p in model.practices for a in p.artifacts})
         total_sequence = len(model.compatibility_relations)
         total_metrics = 1  # asumimos al menos el sistema métrico existe
 
